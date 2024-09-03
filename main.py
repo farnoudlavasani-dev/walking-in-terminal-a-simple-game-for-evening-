@@ -17,10 +17,7 @@ def is_prime(number):
 
 def check_user_prime(number):
     """Informs the user whether the provided number is prime or not."""
-    if is_prime(number):
-        print("Great! That's a prime number.")
-    else:
-        print("This is not a prime number.")
+    print("Great! That's a prime number." if is_prime(number) else "This is not a prime number.")
 
 def ask_about_primes():
     """Asks the user for input regarding prime numbers and validates it."""
