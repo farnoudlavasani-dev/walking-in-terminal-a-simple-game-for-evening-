@@ -4,8 +4,7 @@ import sys
 def greeting():
     """Prompts the user for their name and greets them."""
     username = input("Enter your username: ")
-    print(f"Hello {username}, welcome to this terminal!")
-    
+    print(f"Hello {username}, welcome to this terminal!") 
     
 def is_prime(number):
     if number <= 1:
