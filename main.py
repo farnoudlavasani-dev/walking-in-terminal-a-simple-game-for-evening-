@@ -1,5 +1,4 @@
 import math
-import sys
 
 def greeting():
     """Prompts the user for their name and greets them."""
@@ -24,20 +23,31 @@ def check_user_prime(number):
 def ask_about_primes():
     """Asks the user for input regarding prime numbers and validates it."""
     while True:
-        useranswer = input("Do you know anything about prime numbers? yes/no (or type 'quit' to exit): ").strip().lower()
-        if useranswer == "quit":
-            print("Goodbye!")
-            sys.exit()
-        elif useranswer in ("yes", "no"):
-            break
-        print("Please answer 'yes' or 'no'.")
-    while True:
-        try:
-            user_number = int(input("You Should provide a prime number: ")) 
-            break
-        except ValueError:
-            print('please enter a number')
-    check_user_prime(user_number)
+        useranswer = input("Do you know anything about prime numbers? yes/no").strip().lower()
+        while useranswer == "":
+            print("Please answer 'yes' or 'no'")
+            useranswer = input("Do you know anything about prime numbers? yes/no").strip().lower()
+        if useranswer == "yes":
+            while True:
+                try:
+                    user_number = int(input("You Should provide a prime number: ")) 
+                    break
+                except ValueError:
+                    print('please enter a number')
+            check_user_prime(user_number)
+        elif useranswer == "no":
+            secretnumber = 0
+            guessnumber = input('so, you should guess a number between 0 - 9: ') 
+            while guessnumber != secretnumber:
+                print("hint: it's a binary number: ")
+            print("you win")
+
+        else:
+            print("Please answer 'yes' or 'no'")
+            useranswer = input("Do you know anything about prime numbers? yes/no").strip().lower()
+        
+
+
 
 def main():
     """Main function to run the game."""
